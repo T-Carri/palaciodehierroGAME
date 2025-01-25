@@ -1,20 +1,21 @@
-
 var element = document.getElementById('ground04');
 var positionInfo = element.getBoundingClientRect();
 var width = positionInfo.width;
 var height = positionInfo.height;
 var factor = 1;
-console.log("ancho - alto ", width + " - " + height)
-if ( width<1200 || height<700 ) {
-      var factorW = width/1280;
-      var factorH = height/700;
-      factor = factorW<factorH?factorW:factorH;
-      console.log("ancho - alto ", factorW + " - " + factorH);
+console.log("ancho - alto ", width + " - " + height);
+
+if (width < 1200 || height < 700) {
+    var factorW = width / 1280;  // Relación de escala horizontal
+    var factorH = height / 700;  // Relación de escala vertical
+    factor = factorW < factorH ? factorW : factorH;  // Usamos el menor factor para mantener la relación
+    console.log("ancho - alto ", factorW + " - " + factorH);
 }
 
 const canvas = document.querySelector('canvas');
-canvas.width = width * factor;
-canvas.height = height * factor;
+canvas.width = 1280 * factor;  // Escalamos el ancho del canvas
+canvas.height = 700 * factor;  // Escalamos el alto del canvas
+
 //ctx = canvas.getContext("2d").scale(factor, factor);
 ctx = canvas.getContext("2d");
 console.log("canvas.width - canvas.height ", canvas.width + " - " + canvas.height);
@@ -282,6 +283,65 @@ window.addEventListener("keyup", function(e) {
                   break;
       }
 }, false);
+
+/* 
+// Variables para el movimiento
+let moveLeft = false;
+let moveRight = false; */
+
+// Ajustamos el tamaño de la pantalla para manejar el movimiento
+const screenWidth = window.innerWidth;
+
+// Función que maneja el toque al presionar en la pantalla
+window.addEventListener("touchstart", function(e) {
+    e.preventDefault(); // Prevenir desplazamiento de página al tocar
+
+    // Obtenemos la posición del toque
+    const touchX = e.touches[0].clientX;
+
+    // Comprobamos si el toque está en la mitad izquierda o derecha de la pantalla
+    if (touchX < screenWidth / 2) {
+        moveLeft = true;  // Movimiento a la izquierda
+        moveRight = false;
+    } else {
+        moveRight = true;  // Movimiento a la derecha
+        moveLeft = false;
+    }
+
+    // Verificamos la dirección en la que se mueve
+    console.log("Touch start - moveLeft:", moveLeft, "moveRight:", moveRight);
+}, false);
+
+// Función que maneja el final del toque
+window.addEventListener("touchend", function(e) {
+    e.preventDefault(); // Prevenir desplazamiento de página al soltar el toque
+
+    // Detenemos el movimiento cuando el toque se termina
+    moveLeft = false;
+    moveRight = false;
+
+    console.log("Touch end - moveLeft:", moveLeft, "moveRight:", moveRight);
+}, false);
+
+// Opcional: Agregar un evento `touchmove` para que el jugador también pueda mover el personaje si arrastra el dedo
+window.addEventListener("touchmove", function(e) {
+    e.preventDefault(); // Prevenir desplazamiento de página
+
+    // Obtenemos la posición del toque mientras se mueve
+    const touchX = e.touches[0].clientX;
+
+    if (touchX < screenWidth / 2) {
+        moveLeft = true;
+        moveRight = false;
+    } else {
+        moveRight = true;
+        moveLeft = false;
+    }
+
+    console.log("Touch move - moveLeft:", moveLeft, "moveRight:", moveRight);
+}, false);
+
+
 
 function loadHandler() {
       update();
