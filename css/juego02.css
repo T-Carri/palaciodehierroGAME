@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: black;
+    height: 100%;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.ground01, .ground02, .ground05 {
+    background-color: gray;
+    height: 100%;
+    max-height: 700px;
+    margin: 0 auto;
+    overflow: hidden;
+    width: 100%;
+    max-width: 1280px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.ground01 {
+    background-image: url("../img/fondo01.png");
+}
+
+.ground02 {
+    background-image: url("../img/fondo02.png");
+}
+
+.ground05 {
+    background-image: url("../img/fondo05.png");
+}
+
+.barraTop {
+    background-color: #FFCD00;
+    height: 39px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.barraTop img {
+    height: 14px;
+}
+
+.txt02a {
+    margin: 30px auto 20px;
+    width: fit-content;
+}
+
+.cuadro02a {
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid black;
+    margin: 0 auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 400px;
+    box-sizing: border-box;
+}
+
+.por96 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 10px auto;
+    width: 100%;
+}
+
+.por50 {
+    width: 100%;
+}
+
+.input2 {
+    border-radius: 10px;
+    height: 30px;
+    width: calc(100% - 20px);
+    padding: 5px 10px;
+    box-sizing: border-box;
+}
+
+.select2 {
+    background-color: white;
+    border-radius: 10px;
+    font-size: 14px;
+    height: 30px;
+    margin: 10px 0;
+    width: 100%;
+    text-align: center;
+    text-align-last: center;
+}
+
+.txt01b label {
+    font-size: 14px;
+}
+
+input[type=checkbox] {
+    transform: scale(1.2);
+    margin-right: 5px;
+}
+
+.btn01a {
+    margin: 20px auto;
+    width: fit-content;
+}
+
+.btn01a img {
+    display: block;
+    margin: 0 auto;
+}
+
+/* Consultas de medios para pantallas pequeñas */
+@media screen and (max-width: 768px) {
+    .barraTop {
+        padding: 0 10px;
+    }
+
+    .txt02a img {
+        max-width: 80%;
+    }
+
+    .cuadro02a {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .input2,
+    .select2 {
+        width: 100%;
+    }
+}

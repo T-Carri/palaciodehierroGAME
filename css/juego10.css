@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Asegura que el padding y margin no afecten el tamaño de los elementos */
+}
+
+body {
+    background-color: black;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+}
+
+.ground02 {
+    background-image: url("../img/fondo02.png");
+    background-size: cover; /* Asegura que la imagen de fondo cubra todo el área disponible */
+    background-position: center;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.txt02a {
+    margin-top: 60px;
+    text-align: center;
+}
+
+.cuadro02a {
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid black;
+    width: 100%;
+    max-width: 590px;
+    margin: 30px auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.txt05b {
+    margin: 45px auto 0;
+    text-align: center;
+}
+
+.por96 {
+    display: flex;
+    justify-content: center;
+    width: 96%;
+}
+
+.btn01a {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.barraTop2 {
+    background-color: #FFCD00;
+    height: 39px;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .txt02a img {
+        width: 80%;
+        max-width: 500px;
+        height: auto;
+    }
+
+    .cuadro02a {
+        width: 90%;
+    }
+
+    .btn01a img {
+        width: 70%;
+        max-width: 200px;
+        height: auto;
+    }
+
+    .txt05b img {
+        width: 85%;
+        max-width: 400px;
+        height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .txt02a img {
+        width: 70%;
+        max-width: 300px;
+        height: auto;
+    }
+
+    .btn01a img {
+        width: 60%;
+        max-width: 150px;
+        height: auto;
+    }
+
+    .txt05b img {
+        width: 75%;
+        max-width: 300px;
+        height: auto;
+    }
+}

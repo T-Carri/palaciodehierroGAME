@@ -1,0 +1,128 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Para un mejor control del diseño */
+}
+
+body {
+    background-color: black;
+    height: 100%;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif; /* Asegura compatibilidad con fuentes estándar */
+}
+
+/* Diseño base */
+.ground01, .ground02, .ground05 {
+    background-color: gray;
+    height: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    width: 100%;
+    max-width: 1280px;
+    position: relative;
+    padding: 10px; /* Agregado para evitar bordes cortados */
+}
+
+/* Fondo específico */
+.ground02 {
+    background-image: url("../img/fondo02.png");
+    background-size: cover;
+    background-position: center;
+}
+
+/* Barra superior */
+.barraTop {
+    background-color: #FFCD00;
+    height: 39px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px; /* Espaciado interno */
+}
+
+/* Asegura que las imágenes se adapten */
+.barraIzq img, .barraDer img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Texto central */
+.txt02a, .txt01b {
+    margin: 20px auto;
+    text-align: center;
+}
+
+/* Botón central */
+.btn01a {
+    margin: 20px auto;
+    text-align: center;
+}
+
+/* Caja blanca central */
+.cuadro02a {
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid black;
+    margin: 30px auto;
+    padding: 20px; /* Añadido espaciado interno */
+    width: 90%; /* Adaptable a pantallas pequeñas */
+    max-width: 590px;
+}
+
+/* Divisiones internas */
+.por50 {
+    width: 48%; /* Ajuste para evitar problemas de espacio */
+    margin: 1%;
+}
+
+.por96 {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos bajen en pantallas pequeñas */
+    justify-content: space-between;
+}
+
+/* Inputs y selects */
+.input2, .select2 {
+    border-radius: 10px;
+    height: 30px;
+    width: calc(100% - 20px);
+    margin: 10px auto;
+    display: block;
+}
+
+/* Compatibilidad con pantallas pequeñas */
+@media (max-width: 768px) {
+    .barraIzq img, .barraDer img {
+        max-width: 70px; /* Reducción de imágenes */
+    }
+
+    .cuadro02a {
+        padding: 10px;
+    }
+
+    .txt02a img, .txt01b img {
+        max-width: 100%;
+        height: auto; /* Asegura que las imágenes sean responsivas */
+    }
+
+    .btn01a img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .por50 {
+        width: 100%; /* Los elementos ocupan todo el ancho */
+    }
+
+    .barraTop {
+        flex-direction: column; /* Cambia la dirección a columna en dispositivos pequeños */
+        height: auto;
+    }
+
+    .barraIzq, .barraDer {
+        width: 100%;
+        text-align: center;
+    }
+}
