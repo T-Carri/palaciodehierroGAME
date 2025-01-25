@@ -1,4 +1,4 @@
-var element = document.getElementById('ground04');
+/* var element = document.getElementById('ground04');
 var positionInfo = element.getBoundingClientRect();
 var width = positionInfo.width;
 var height = positionInfo.height;
@@ -14,7 +14,42 @@ if (width < 1200 || height < 700) {
 
 const canvas = document.querySelector('canvas');
 canvas.width = 1280 * factor;  // Escalamos el ancho del canvas
-canvas.height = 700 * factor;  // Escalamos el alto del canvas
+canvas.height = 700 * factor;  // Escalamos el alto del canvas */
+
+
+// Acceder al elemento que contiene el canvas
+var element = document.getElementById('ground04');
+var positionInfo = element.getBoundingClientRect();
+var width = positionInfo.width;
+var height = positionInfo.height;
+
+// Relación de aspecto original del canvas (1280x700)
+var canvasAspectRatio = 1280 / 700;
+
+// Obtener el canvas y ajustar su tamaño
+const canvas = document.querySelector('canvas');
+
+// Escalar el canvas al 100% del ancho del contenedor o ventana
+canvas.style.width = '100%';
+canvas.style.height = 'auto';  // Esto hará que la altura se ajuste automáticamente
+
+// Luego, ajustamos el tamaño del canvas en JavaScript para mantener la relación de aspecto
+function resizeCanvas() {
+    var newWidth = canvas.offsetWidth;
+    var newHeight = newWidth / canvasAspectRatio;  // Calculamos la altura proporcional
+
+    // Establecer las nuevas dimensiones
+    canvas.width = newWidth;
+    canvas.height = newHeight;
+
+    console.log("Canvas ajustado a: ", canvas.width, "x", canvas.height);
+}
+
+// Llamar a la función para ajustar el tamaño del canvas inicialmente
+resizeCanvas();
+
+// Asegurarnos de que el canvas se ajuste si se redimensiona la ventana
+window.addEventListener('resize', resizeCanvas);
 
 //ctx = canvas.getContext("2d").scale(factor, factor);
 ctx = canvas.getContext("2d");
