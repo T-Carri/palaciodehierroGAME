@@ -397,14 +397,14 @@ const ctx = canvas.getContext("2d");
 
 let playerWidth = 50;
 let playerHeight = 20;
-let playerSpeed = 15;
+let playerSpeed = 25;
 let playerX;
 let playerY;
 
 let fallingObjectWidth = 85;
 let fallingObjectHeight = 85;
 let fallingObjects = [];
-let objectSpeed = 5;
+let objectSpeed = 6;
 let score = 0;
 
 let rightPressed = false;
@@ -472,7 +472,19 @@ function touchEndHandler(e) {
     leftPressed = false;
 }
 
+
 function touchMoveHandler(e) {
+    const touchX = e.touches[0].clientX;
+    const deltaX = touchX - startX; // Diferencia de movimiento
+    playerX += deltaX * 0.2; // Ajustar sensibilidad con el factor 0.2
+
+    // Limitar la posición del jugador dentro del canvas
+    if (playerX < 0) playerX = 0;
+    if (playerX > canvas.width - playerWidth) playerX = canvas.width - playerWidth;
+
+    startX = touchX; // Actualizar posición inicial
+}
+/* function touchMoveHandler(e) {
     // Detectar el movimiento del toque
     touchMoveX = e.touches[0].clientX;
 
@@ -490,14 +502,14 @@ function touchMoveHandler(e) {
         rightPressed = false;
         leftPressed = false;
     }
-}
+} */
 
 
 
 
 function createFallingObject() {
     let x = Math.random() * (canvas.width - fallingObjectWidth);
-    let type = Math.random() > 0.5 ? "positive" : "negative"; // 50% de chance para bolas positivas o negativas
+    let type = Math.random() > 0.3 ? "positive" : "negative"; // 50% de chance para bolas positivas o negativas
     let points = 1; // Por defecto, la bola es de 1 punto
 
     // Determinar tipo de bola
